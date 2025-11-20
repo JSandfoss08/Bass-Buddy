@@ -1,0 +1,3 @@
+repository "Guitar Tutor/Guitar Tutor@2475279024985@cloud"
+  path "/"
+    smartbranch "/main/Jared"
