@@ -220,6 +220,7 @@ public class UI_Login : MonoBehaviour
             
             // Hide the add user popup if it was open
             HideAddUserView();
+            addUserFeedbackText.text = "";
         }
         else
         {
