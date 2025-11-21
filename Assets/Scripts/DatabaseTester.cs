@@ -136,7 +136,7 @@ public class DatabaseTester : MonoBehaviour, Tester
             int lessonID = lessons[0].LessonId;
 
             Stopwatch timer = Stopwatch.StartNew();
-            db_handler.UpdateLessonProgress(userID, lessonID, 90f);
+            db_handler.UpdateLessonProgress(userID, lessonID, 100f, 90f);
             timer.Stop();
 
             UserLessonProgress progress = db_handler.GetLessonProgress(userID, lessonID);
@@ -176,7 +176,7 @@ public class DatabaseTester : MonoBehaviour, Tester
             int userID = db_handler.GetUserID(username);
 
             if (added && userID != -1)
-                db_handler.UpdateLessonProgress(userID, db_handler.GetAllLessons()[0].LessonId, 100f);
+                db_handler.UpdateLessonProgress(userID, db_handler.GetAllLessons()[0].LessonId, 100f, 100f);
 
             bool removed = db_handler.RemoveUser(username, "test123");
             timer.Stop();

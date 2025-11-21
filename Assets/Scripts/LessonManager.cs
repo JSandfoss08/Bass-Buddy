@@ -26,6 +26,7 @@ public class LessonManager : MonoBehaviour
         InitializeLessonContent();
     }
 
+    [ContextMenu("Initialize Lesson Content")]
     void InitializeLessonContent()
     {
         /*
@@ -41,7 +42,7 @@ public class LessonManager : MonoBehaviour
         lessonContentMap[1] = new LessonContent(
             3f,
             new List<Note>() {},
-            .90f
+            90f
         );
         
         // Single note lesson
@@ -53,12 +54,12 @@ public class LessonManager : MonoBehaviour
                 Note.E, Note.E, Note.E,
                 Note.E
             },
-            0.90f
+            90f
         );
 
         // Basic major scale
         lessonContentMap[3] = new LessonContent(
-            2.5f,
+            1.8f,
             new List<Note>() {
                 Note.C, Note.D, Note.E,
                 Note.F, Note.G, Note.A,
@@ -66,7 +67,7 @@ public class LessonManager : MonoBehaviour
                 Note.F, Note.E, Note.D,
                 Note.C
             },
-            0.90f
+            90f
         );
 
         // Basic bassline
@@ -78,11 +79,11 @@ public class LessonManager : MonoBehaviour
                 Note.D, Note.DSharp, Note.E,
                 Note.G, Note.GSharp, Note.A
             },
-            0.90f
+            90f
         );
 
         // Random Notes
-        lessonContentMap[4] = new LessonContent(
+        lessonContentMap[5] = new LessonContent(
             2.5f,
             new List<Note>() {
                 Note.GetRandomNote(), Note.GetRandomNote(), Note.GetRandomNote(),
@@ -90,13 +91,12 @@ public class LessonManager : MonoBehaviour
                 Note.GetRandomNote(), Note.GetRandomNote(), Note.GetRandomNote(),
                 Note.GetRandomNote()
             },
-            0.90f
+            90f
         );
 
         // Basic major scale, faster
-        // Is this meant to be index 5?
-        lessonContentMap[3] = new LessonContent(
-            1.8f,
+        lessonContentMap[6] = new LessonContent(
+            2f,
             new List<Note>() {
                 Note.C, Note.D, Note.E,
                 Note.F, Note.G, Note.A,
@@ -104,7 +104,7 @@ public class LessonManager : MonoBehaviour
                 Note.F, Note.E, Note.D,
                 Note.C
             },
-            0.90f
+            90f
         );
 
         Debug.Log($"LessonManager: Initialized {lessonContentMap.Count} lesson contents");
@@ -181,19 +181,7 @@ public class LessonManager : MonoBehaviour
         }
 
         float percentage = (completedNotes / (float)totalNotes) * 100f;
-        DatabaseHandler.Instance.UpdateLessonProgress(userId, lessonId, percentage);
-    }
-
-    // Complete a lesson (mark as 100%)
-    public void CompleteLesson(int userId, int lessonId)
-    {
-        DatabaseHandler.Instance.UpdateLessonProgress(userId, lessonId, 100f);
-
-        var info = GetLessonInfo(lessonId);
-        if (info != null)
-        {
-            Debug.Log($"LessonManager: Lesson '{info.LessonName}' completed by user {userId}!");
-        }
+        DatabaseHandler.Instance.UpdateLessonProgress(userId, lessonId, 100f, percentage);
     }
 
     // Check if a lesson is unlocked (for sequential progression)

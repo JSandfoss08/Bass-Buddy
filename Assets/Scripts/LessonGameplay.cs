@@ -263,7 +263,7 @@ public class LessonGameplay : MonoBehaviour
 
         if (percentage > currentProgress.ProgressPercentage)
         {
-            DatabaseHandler.Instance.UpdateLessonProgress(userID, lessonID, percentage);
+            DatabaseHandler.Instance.UpdateLessonProgress(userID, lessonID, minPassingPercentage, percentage);
             Debug.Log($"Progress updated: {correctNotes}/{totalNotes} = {percentage}%");
         }
         else
@@ -276,7 +276,7 @@ public class LessonGameplay : MonoBehaviour
     {
         Debug.Log("Lesson completed!");
         // Check user pass condition
-        if (correctNotes / (float)totalNotes >= minPassingPercentage)
+        if (correctNotes / (float)totalNotes * 100 >= minPassingPercentage)
             passed = true;
 
         // Final update to database

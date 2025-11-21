@@ -8369,7 +8369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1896203475578069756, guid: 590234479f26c4b0b94b02f91a805211, type: 3}
       propertyPath: thresholdSRH
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6579251008063098595, guid: 590234479f26c4b0b94b02f91a805211, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15711,7 +15711,7 @@ MonoBehaviour:
   timingIndicatorAnimator: {fileID: 385250185}
   timingIndicatorStart: {x: 437.5, y: 0}
   timingIndicatorEnd: {x: -400, y: 0}
-  timingIndicatorAheadOffset: 0.3
+  timingIndicatorAheadOffset: 0.5
   endMenuDelay: 0.5
   completionPanel: {fileID: 1813779885}
   completionTitleText: {fileID: 644724003}
@@ -16568,11 +16568,11 @@ PrefabInstance:
       objectReference: {fileID: 1008012154}
     - target: {fileID: 5735719181193289349, guid: 2a08ecd4ccf3d45e5b5a81039405dccc, type: 3}
       propertyPath: gracePeriodLate
-      value: 0.038
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5735719181193289349, guid: 2a08ecd4ccf3d45e5b5a81039405dccc, type: 3}
       propertyPath: gracePeriodEarly
-      value: 0.038
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5735719181193289349, guid: 2a08ecd4ccf3d45e5b5a81039405dccc, type: 3}
       propertyPath: noteDetectionVolumeThreshold

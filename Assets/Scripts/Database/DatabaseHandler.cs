@@ -358,7 +358,7 @@ public class DatabaseHandler : MonoBehaviour
     }
 
     // Percentage is in the form of XX.XX%
-    public void UpdateLessonProgress(int userId, int lessonId, float percentage)
+    public void UpdateLessonProgress(int userId, int lessonId, float minPassingPercentage, float percentage)
     {
         var progress = GetLessonProgress(userId, lessonId);
 
@@ -376,7 +376,7 @@ public class DatabaseHandler : MonoBehaviour
                     progress.Status = "in_progress";
                 }
 
-                if (percentage >= 100f && progress.Status != "complete")
+                if (percentage >= minPassingPercentage && progress.Status != "complete")
                 {
                     progress.Status = "complete";
                     progress.CompletedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");

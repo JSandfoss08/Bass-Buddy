@@ -180,6 +180,7 @@ public class UI_Login : MonoBehaviour
             RefreshUserList();
             HideLoginView();
             loginPasswordInput.text = "";
+            loginFeedbackText.text = "";
         }   
     }
 

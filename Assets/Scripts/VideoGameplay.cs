@@ -82,7 +82,7 @@ public class VideoGameplay : MonoBehaviour
         {
             hasShownCompletion = true;
             ui.ShowLessonEnd(true);
-            DatabaseHandler.Instance.UpdateLessonProgress(userID, lessonID, 100);
+            DatabaseHandler.Instance.UpdateLessonProgress(userID, lessonID, 100f, 100);
             Debug.Log("Updated users progress to 100%");
             videoPlayer.loopPointReached -= OnVideoEnd;
         }
@@ -99,7 +99,7 @@ public class VideoGameplay : MonoBehaviour
         UserLessonProgress prevProgress = DatabaseHandler.Instance.GetLessonProgress(userID, lessonID);
         if (prevProgress != null && prevProgress.ProgressPercentage == 0)
         {
-            DatabaseHandler.Instance.UpdateLessonProgress(userID, lessonID, 50f);
+            DatabaseHandler.Instance.UpdateLessonProgress(userID, lessonID, 100f, 50f);
             Debug.Log("Updated users progress to 50%");
         }
     }
